@@ -1,0 +1,144 @@
+/* ============================================================
+   variables.css — Design Token Definitions
+   Brand: Cosmetics Glow
+   ============================================================ */
+
+:root {
+
+  /* ----------------------------------------------------------
+     COLOR PALETTE
+  ---------------------------------------------------------- */
+
+  /* Primary — Soft Cream */
+  --color-primary:        #F5F2ED;
+  --color-primary-light:  #FAF8F5;
+  --color-primary-dark:   #EAE5DC;
+
+  /* Secondary — Sage Green */
+  --color-secondary:      #8A9A8E;
+  --color-secondary-light:#A8B8AC;
+  --color-secondary-dark: #5E7262;
+
+  /* Tertiary — Dusty Rose */
+  --color-tertiary:       #D4B2A7;
+  --color-tertiary-light: #E5CEC8;
+  --color-tertiary-dark:  #B8897B;
+
+  /* Neutral — Near Black */
+  --color-neutral:        #2D2D2D;
+  --color-neutral-mid:    #6B6B6B;
+  --color-neutral-light:  #AFAFAF;
+  --color-neutral-subtle: #E8E8E8;
+
+  /* Semantic aliases */
+  --color-bg:             var(--color-primary);
+  --color-bg-surface:     var(--color-primary-light);
+  --color-text:           var(--color-neutral);
+  --color-text-muted:     var(--color-neutral-mid);
+  --color-accent:         var(--color-secondary);
+  --color-accent-warm:    var(--color-tertiary);
+  --color-border:         var(--color-neutral-subtle);
+  --color-divider:        var(--color-secondary-dark);
+
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY
+  ---------------------------------------------------------- */
+
+  --font-display:   'Playfair Display', Georgia, serif;
+  --font-body:      'Inter', system-ui, -apple-system, sans-serif;
+  --font-label:     'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Scale (Major Third — 1.25 ratio) */
+  --text-xs:    0.8rem;   /* 10px  */
+  --text-sm:    0.9rem;    /* 12.8px */
+  --text-base:  1rem;      /* 16px  */
+  --text-md:    1.25rem;   /* 20px  */
+  --text-lg:    1.563rem;  /* 25px  */
+  --text-xl:    1.953rem;  /* 31px  */
+  --text-2xl:   2.441rem;  /* 39px  */
+  --text-3xl:   3.052rem;  /* 49px  */
+  --text-4xl:   3.815rem;  /* 61px  */
+
+  /* Weight */
+  --weight-regular:   400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+
+  /* Line height */
+  --leading-tight:    1.2;
+  --leading-snug:     1.4;
+  --leading-normal:   1.6;
+  --leading-loose:    1.8;
+
+  /* Letter spacing */
+  --tracking-tight:   -0.02em;
+  --tracking-normal:   0em;
+  --tracking-wide:     0.05em;
+  --tracking-wider:    0.1em;
+
+
+  /* ----------------------------------------------------------
+     SPACING (8px base grid)
+  ---------------------------------------------------------- */
+
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+
+
+  /* ----------------------------------------------------------
+     BORDER & RADIUS
+  ---------------------------------------------------------- */
+
+  --radius-sm:    4px;
+  --radius-md:    8px;
+  --radius-lg:    12px;
+  --radius-xl:    16px;
+  --radius-full:  9999px;
+
+  --border-width:       1px;
+  --border-width-thick: 2px;
+
+
+  /* ----------------------------------------------------------
+     SHADOW
+  ---------------------------------------------------------- */
+
+  --shadow-sm:  0 1px 3px rgba(45, 45, 45, 0.08);
+  --shadow-md:  0 4px 12px rgba(45, 45, 45, 0.10);
+  --shadow-lg:  0 8px 24px rgba(45, 45, 45, 0.12);
+
+
+  /* ----------------------------------------------------------
+     TRANSITIONS
+  ---------------------------------------------------------- */
+
+  --duration-fast:    150ms;
+  --duration-normal:  250ms;
+  --duration-slow:    400ms;
+  --easing-default:   ease-in-out;
+  --transition-base:  var(--duration-fast) var(--easing-default);
+
+
+  /* ----------------------------------------------------------
+     LAYOUT
+  ---------------------------------------------------------- */
+
+  --container-sm:   640px;
+  --container-md:   768px;
+  --container-lg:   1024px;
+  --container-xl:   1280px;
+
+  --nav-height:     64px;
+}

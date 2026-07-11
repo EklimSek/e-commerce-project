@@ -1,0 +1,109 @@
+/* ============================================================
+   product-grid.css  →  src/styles/components/product-grid.css
+   Depends on: base/variables.css, base/typography.css
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Grid section wrapper
+---------------------------------------------------------- */
+
+.product-grid__section {
+  flex: 1;
+  min-width: 0;   /* prevents flex blowout */
+}
+
+
+/* ----------------------------------------------------------
+   Grid — 3 cols desktop, 2 tablet, 1 mobile
+---------------------------------------------------------- */
+
+.product-grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap:            var(--space-6);   /* gap-gutter = 24px */
+  row-gap:               var(--space-20);  /* gap-y stack-lg = 80px */
+}
+
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px){
+  .product-grid{
+    row-gap: var(--space-10);
+  }
+}
+
+@media (max-width: 280px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   Load more footer
+---------------------------------------------------------- */
+
+.product-grid__footer {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            var(--space-4);
+  margin-top:     var(--space-20);        /* mt-stack-lg */
+  padding-top:    var(--space-8);         /* pt-stack-md */
+  border-top:     var(--border-width) solid var(--color-border);
+}
+
+.product-grid__showing {
+  font-family: var(--font-body);
+  font-size:   var(--text-sm);
+  color:       var(--color-text-muted);
+  margin:      0;
+}
+
+/* Progress bar track */
+.product-grid__progress-track {
+  width:            192px;   /* w-48 */
+  height:           4px;
+  background-color: var(--color-neutral-subtle);
+  border-radius:    var(--radius-full);
+  overflow:         hidden;
+}
+
+/* Fill — 6/24 = 25% */
+.product-grid__progress-bar {
+  width:            25%;
+  height:           100%;
+  background-color: var(--color-secondary);
+  border-radius:    var(--radius-full);
+}
+
+/* Load more button */
+.product-grid__load-more {
+  margin-top:      var(--space-4);
+  border:          var(--border-width) solid var(--color-neutral);
+  padding:         var(--space-3) var(--space-8);
+  font-family:     var(--font-label);
+  font-size:       var(--text-xs);
+  font-weight:     var(--weight-semibold);
+  letter-spacing:  var(--tracking-wider);
+  text-transform:  uppercase;
+  background:      transparent;
+  color:           var(--color-neutral);
+  cursor:          pointer;
+  transition:      background-color var(--transition-base),
+                   color            var(--transition-base),
+                   transform        var(--duration-fast) var(--easing-default);
+}
+
+.product-grid__load-more:hover {
+  background-color: var(--color-neutral);
+  color:            var(--color-primary);
+}
+
+.product-grid__load-more:active {
+  transform: scale(0.95);
+}

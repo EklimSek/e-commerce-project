@@ -1,0 +1,32 @@
+/* ----------------------------------------------------------
+   Form inputs
+---------------------------------------------------------- */
+
+.input {
+  width:            100%;
+  font-family:      var(--font-body);
+  font-size:        var(--text-base);
+  color:            var(--color-text);
+  background-color: var(--color-bg-surface);
+  border:           var(--border-width) solid var(--color-border);
+  border-radius:    var(--radius-md);
+  padding:          var(--space-3) var(--space-4);
+  outline:          none;
+  transition:       border-color var(--transition-base),
+                    box-shadow   var(--transition-base);
+}
+
+.input:focus {
+  border-color: var(--color-secondary);
+  box-shadow:   0 0 0 3px rgba(138, 154, 142, 0.2);
+}
+
+.input::placeholder {
+  color: var(--color-neutral-light);
+}
+
+.input:disabled {
+  opacity:    0.5;
+  cursor:     not-allowed;
+  background-color: var(--color-primary-dark);
+}

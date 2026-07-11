@@ -1,0 +1,162 @@
+/* ----------------------------------------------------------
+   Buttons  (mirrors the 4 variants in the brand guide)
+---------------------------------------------------------- */
+
+.btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--space-2);
+  font-family:     var(--font-label);
+  font-size:       var(--text-sm);
+  font-weight:     var(--weight-medium);
+  letter-spacing:  var(--tracking-wide);
+  line-height:     1;
+  padding:         var(--space-3) var(--space-6);
+  border-radius:   var(--radius-md);
+  border:          var(--border-width-thick) solid transparent;
+  transition:      background-color var(--transition-base),
+                   color            var(--transition-base),
+                   border-color     var(--transition-base),
+                   box-shadow       var(--transition-base);
+  text-decoration: none;
+  white-space:     nowrap;
+  cursor:          pointer;
+}
+
+/* Primary — dark fill */
+.btn-primary {
+  background-color: var(--color-neutral);
+  color:            var(--color-primary);
+  border-color:     var(--color-neutral);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-neutral-mid);
+  border-color:     var(--color-neutral-mid);
+}
+
+/* Secondary — light outlined */
+.btn-secondary {
+  background-color: transparent;
+  color:            var(--color-neutral);
+  border-color:     var(--color-neutral-subtle);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-dark);
+  border-color:     var(--color-neutral-light);
+}
+
+/* Inverted — sage green fill */
+.btn-inverted {
+  background-color: var(--color-neutral);
+  color:            var(--color-primary);
+  border-color:     var(--color-neutral);
+}
+
+.btn-inverted:hover {
+  background-color: var(--color-secondary-dark);
+  border-color:     var(--color-secondary-dark);
+}
+
+/* Outlined — sage green border, transparent bg */
+.btn-outlined {
+  background-color: transparent;
+  color:            var(--color-neutral);
+  border-color:     var(--color-neutral-subtle);
+}
+
+.btn-outlined:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Sizes */
+.btn-sm {
+  font-size: var(--text-xs);
+  padding:   var(--space-2) var(--space-4);
+}
+
+.btn-lg {
+  font-size: var(--text-base);
+  padding:   var(--space-4) var(--space-8);
+}
+
+/* Circular icon button */
+.btn-icon {
+  width:            40px;
+  height:           40px;
+  padding:          0;
+  border-radius:    var(--radius-full);
+  background-color: var(--color-neutral);
+  color:            var(--color-primary);
+}
+
+.btn-icon.btn-icon-danger {
+  background-color: #C0392B;
+}
+
+.btn-icon.btn-icon-light {
+  background-color: var(--color-neutral-subtle);
+  color:            var(--color-neutral);
+}
+
+.btn:focus-visible {
+  outline:        2px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor:  not-allowed;
+}
+
+/*  Button Nothing */
+.btn-nothing{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-nothing:focus{
+    border: none;
+    outline: none;
+}
+
+.arrow-btn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+}
+
+/* Base button */
+.pagination-btn {
+    padding: var(--space-sm);
+    border: none;
+    background-color: transparent;
+    color: var(--color-text);
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.2s ease;
+}
+
+.pagination-btn:hover {
+    opacity: 1;
+}
+
+/* Active page */
+.pagination-btn.active {
+    opacity: 1;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-primary);
+}
+
+/* Disabled */
+.pagination-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}

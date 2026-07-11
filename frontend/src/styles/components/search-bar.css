@@ -1,0 +1,39 @@
+/* ----------------------------------------------------------
+   Search Input  (matches brand guide search bar)
+---------------------------------------------------------- */
+
+.search-wrapper {
+  display:          flex;
+  align-items:      center;
+  gap:              var(--space-2);
+  background-color: var(--color-bg-surface);
+  border:           var(--border-width) solid var(--color-border);
+  border-radius:    var(--radius-md);
+  padding:          var(--space-2) var(--space-4);
+  transition:       border-color var(--transition-base),
+                    box-shadow   var(--transition-base);
+}
+
+.search-wrapper:focus-within {
+  border-color: var(--color-secondary);
+  box-shadow:   0 0 0 3px rgba(138, 154, 142, 0.2);
+}
+
+.search-wrapper input {
+  flex:        1;
+  border:      none;
+  background:  transparent;
+  outline:     none;
+  font-family: var(--font-body);
+  font-size:   var(--text-sm);
+  color:       var(--color-text);
+}
+
+.search-wrapper input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.search-icon {
+  color:     var(--color-neutral-mid);
+  flex-shrink: 0;
+}

@@ -1,0 +1,350 @@
+/* ============================================================
+   cart.css  →  src/styles/pages/cart.css
+   Covers: CartPage, CartList, CartItem, OrderSummary, RecommendedProducts
+   Source tokens mapped to project variables:
+     margin-desktop (64px) → --space-16
+     margin-mobile  (20px) → --space-5
+     stack-lg (80px)       → --space-20
+     stack-md (32px)       → --space-8
+     stack-sm (16px)       → --space-4
+     gutter   (24px)       → --space-6
+     headline-md (32px)    → --text-3xl
+     title-sm (18px)       → --text-md
+     body-md (14px)        → --text-sm
+   Depends on: base/variables.css, base/typography.css
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Page wrapper
+---------------------------------------------------------- */
+
+.cart-page {
+  max-width:      var(--container-xl);
+  margin-inline:  auto;
+  padding-inline: var(--space-5);    /* margin-mobile */
+  padding-block:  var(--space-20);   /* stack-lg */
+}
+
+@media (min-width: 768px) {
+  .cart-page {
+    padding-inline: var(--space-16); /* margin-desktop */
+  }
+}
+
+.cart-page__heading,
+.recommended-products__heading{
+  font-family:   var(--font-display);
+  font-size:     var(--text-2xl);     /* headline-md = 32px */
+  font-weight:   var(--weight-medium);
+  line-height:   var(--leading-tight);
+  color:         var(--color-neutral);
+  margin-bottom: var(--space-8);      /* stack-md */
+}
+
+
+/* ----------------------------------------------------------
+   Main grid — 12 col, cart list spans 8, summary spans 4
+---------------------------------------------------------- */
+
+.cart-page__grid {
+  display:               grid;
+  grid-template-columns: 1fr;
+  gap:                   var(--space-6);  /* gutter */
+  align-items:           start;
+}
+
+@media (min-width: 1024px) {
+  .cart-page__grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+
+/* ----------------------------------------------------------
+   Cart list — spans 8 cols on desktop
+---------------------------------------------------------- */
+
+.cart-list {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-6);   /* gutter — space-y-gutter */
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+  .cart-list {
+    grid-column: span 8;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   Cart item card
+---------------------------------------------------------- */
+
+.cart-item {
+  display:          flex;
+  gap:              var(--space-4);   /* stack-sm */
+  padding-block:          var(--space-4);   /* stack-sm */
+  background-color: var(--color-bg-surface);  /* surface-container-low */
+  border-radius:    var(--radius-lg);
+ /* cart-shadow */
+  transition:       transform var(--transition-base);
+  margin-right: var(--space-4);
+}
+
+.cart-item:hover {
+  transform: scale(1.01);
+}
+
+.cart-item__image-wrap {
+  width:  clamp(88px, 25vw, 128px);
+  height: clamp(110px, 31vw, 150px);
+  flex-shrink:      0;
+  background-color: #ffffff;
+  border-radius:    var(--radius-md);
+  overflow:         hidden;
+}
+
+.cart-item__image {
+  width:      100%;
+  height:     100%;
+  object-fit: cover;
+}
+
+.cart-item__content {
+  flex:            1;
+  min-width:       0;
+  display:         flex;
+  flex-direction:  column;
+  justify-content: space-between;
+}
+
+/* Top row */
+.cart-item__top {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     flex-start;
+}
+
+.cart-item__name {
+  font-family: var(--font-body);
+  font-size:   var(--text-base);        /* title-sm = 18px */
+  font-weight: var(--weight-semibold);
+  color:       var(--color-neutral);
+}
+
+.cart-item__meta {
+  font-family: var(--font-body);
+  font-size:   var(--text-sm);
+  color:       var(--color-text-muted);
+  margin-top:  var(--space-1);
+}
+
+.cart-item__remove {
+  background:  transparent;
+  border:      none;
+  cursor:      pointer;
+  color:       var(--color-text-muted);
+  padding:     var(--space-1);
+  transition:  color var(--transition-base);
+}
+
+.cart-item__remove:hover {
+  color: #BA1A1A;   /* error color from source */
+}
+
+/* Bottom row */
+.cart-item__bottom {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     flex-end;
+}
+
+.cart-item__qty-wrap {
+  display:          flex;
+  align-items:      center;
+  background-color: #ffffff;
+  border:           var(--border-width) solid var(--color-border);
+  border-radius:    var(--radius-md);
+  overflow:         hidden;
+}
+
+.cart-item__qty-btn {
+  padding:    var(--space-1) var(--space-3);
+  background: transparent;
+  border:     none;
+  cursor:     pointer;
+  color:      var(--color-neutral);
+  transition: color var(--transition-base);
+  display:    flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-item__qty-btn:hover {
+  color: var(--color-neutral-subtle);
+}
+
+.cart-item__qty-value {
+  padding:     var(--space-1) var(--space-4);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  color:       var(--color-neutral);
+}
+
+.cart-item__price {
+  font-family: var(--font-body);
+  font-size:   var(--text-md);        /* title-sm = 18px */
+  font-weight: var(--weight-semibold);
+  color:       var(--color-neutral);
+}
+
+
+/* ----------------------------------------------------------
+   Order summary — spans 4 cols, sticky
+---------------------------------------------------------- */
+
+
+
+@media (min-width: 1024px) {
+  .order-summary {
+    grid-column: span 4;
+  }
+}
+
+.order-summary__card {
+  background-color: var(--color-primary);   /* primary-container */
+  border-radius:    var(--radius-lg);
+  padding:          var(--space-8);          /* stack-md */
+  position:         sticky;
+  top:              calc(var(--nav-height) * 2);  /* top-32 equivalent */
+  margin-bottom: var(--space-4);
+}
+
+.order-summary__heading {
+  font-family:    var(--font-body);   /* title-sm uses Inter, not Playfair */
+  font-size:      var(--text-md);     /* 18px */
+  font-weight:    var(--weight-semibold);
+  color:          var(--color-neutral);
+  padding-bottom: var(--space-4);
+  margin-bottom:  var(--space-6);
+  border-bottom:  var(--border-width) solid var(--color-border);
+}
+
+.order-summary__rows {
+  display:        flex;
+  flex-direction: column;
+  gap:            var(--space-4);
+  margin-bottom:  var(--space-8);
+}
+
+.order-summary__row {
+  display:         flex;
+  justify-content: space-between;
+  font-family:     var(--font-body);
+  font-size:       var(--text-base);
+  color:           var(--color-neutral);
+}
+
+.order-summary__free {
+  color:       var(--color-secondary-dark);
+  font-weight: var(--weight-medium);
+}
+
+.order-summary__total-row {
+  display:         flex;
+  justify-content: space-between;
+  padding-top:     var(--space-4);
+  border-top:      var(--border-width) solid var(--color-border);
+  font-family:     var(--font-body);
+  font-size:       var(--text-md);
+  font-weight:     var(--weight-bold);
+  color:           var(--color-neutral);
+}
+
+.order-summary__checkout-btn {
+  width:            100%;
+  background-color: #303030;
+  color:            #ffffff;
+  padding:          var(--space-4) 0;
+  border:           none;
+  border-radius:    var(--radius-md);
+  font-family:      var(--font-body);
+  font-size:        var(--text-base);
+  font-weight:      var(--weight-bold);
+  cursor:           pointer;
+  transition:       opacity var(--duration-fast) var(--easing-default),
+                    transform var(--duration-fast) var(--easing-default);
+}
+
+.order-summary__checkout-btn:hover {
+  opacity: 0.9;
+}
+
+.order-summary__checkout-btn:active {
+  transform: scale(0.98);
+}
+
+.order-summary__secure-note {
+  text-align:  center;
+  font-family: var(--font-body);
+  font-size:   var(--text-sm);
+  color:       var(--color-text-muted);
+  margin-top:  var(--space-4);
+}
+
+
+/* ----------------------------------------------------------
+   Recommended products
+---------------------------------------------------------- */
+
+.recommended-products {
+  padding-top:   var(--space-20);   /* stack-lg */
+  border-top:    var(--border-width) solid var(--color-border);
+}
+
+.recommended-products__grid {
+  display:               grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:                   var(--space-6);   /* gutter */
+}
+
+@media (min-width: 768px) {
+  .recommended-products__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+
+@media (max-width: 580px) {
+
+  .cart-page{
+    padding-block: var(--space-16);
+  }
+
+  .cart-page__heading,
+  .recommended-products__heading{
+    font-size: var(--text-xl);
+  }
+
+  .cart-item__name,
+  .cart-item__price{
+    font-size: var(--text-base);
+  }
+
+  .cart-item__meta{
+    font-size: var(--text-xs);
+  }
+
+  .cart-item__qty-btn,
+  .cart-item__qty-value{
+    padding-inline: var(--space-2)
+  }
+
+  .order-summary__card{
+    padding: var(--space-5);
+  }
+}

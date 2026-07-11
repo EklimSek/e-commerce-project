@@ -1,0 +1,225 @@
+/* ============================================================
+   typography.css — Global Type Styles
+   Depends on: variables.css
+   Fonts: Playfair Display (display), Inter (body + label)
+   Import in <head>:
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Base document type
+---------------------------------------------------------- */
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family:    var(--font-body);
+  font-size:      var(--text-base);
+  font-weight:    var(--weight-regular);
+  line-height:    var(--leading-normal);
+  color:          var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ----------------------------------------------------------
+   Display / Headline  (Playfair Display)
+---------------------------------------------------------- */
+
+h1, h2, h3,
+.heading-1, .heading-2, .heading-3 {
+  font-family:    var(--font-display);
+  font-weight:    var(--weight-bold);
+  line-height:    var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color:          var(--color-text);
+  margin-top:     0;
+}
+
+h1, .heading-1 {
+  font-size: var(--text-4xl);
+}
+
+h2, .heading-2 {
+  font-size: var(--text-3xl);
+}
+
+h3, .heading-3 {
+  font-size: var(--text-2xl);
+}
+
+
+/* ----------------------------------------------------------
+   Body headings  (Inter — large but not display)
+---------------------------------------------------------- */
+
+h4, h5, h6,
+.heading-4, .heading-5, .heading-6 {
+  font-family:    var(--font-body);
+  font-weight:    var(--weight-semibold);
+  line-height:    var(--leading-snug);
+  letter-spacing: var(--tracking-normal);
+  color:          var(--color-text);
+  margin-top:     0;
+}
+
+h4, .heading-4 { font-size: var(--text-xl); }
+h5, .heading-5 { font-size: var(--text-lg); }
+h6, .heading-6 { font-size: var(--text-md); }
+
+
+/* ----------------------------------------------------------
+   Body text  (Inter)
+---------------------------------------------------------- */
+
+p {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  font-weight:  var(--weight-regular);
+  line-height:  var(--leading-normal);
+  color:        var(--color-text);
+  margin-top:   0;
+  margin-bottom: var(--space-4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.text-lg  { font-size: var(--text-lg);  line-height: var(--leading-snug); }
+.text-md  { font-size: var(--text-md);  }
+.text-sm  { font-size: var(--text-sm);  line-height: var(--leading-loose); }
+.text-xs  { font-size: var(--text-xs);  line-height: var(--leading-loose); }
+
+.text-muted   { color: var(--color-text-muted); }
+.text-accent  { color: var(--color-accent); }
+.text-warm    { color: var(--color-accent-warm); }
+
+
+/* ----------------------------------------------------------
+   Label  (Inter — uppercase tracking)
+---------------------------------------------------------- */
+
+label,
+.label {
+  font-family:    var(--font-label);
+  font-size:      var(--text-sm);
+  font-weight:    var(--weight-medium);
+  line-height:    var(--leading-normal);
+  letter-spacing: var(--tracking-wide);
+  color:          var(--color-text-muted);
+}
+
+.label-sm {
+  font-size:      var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+
+/* ----------------------------------------------------------
+   Inline text utilities
+---------------------------------------------------------- */
+
+strong, b  { font-weight: var(--weight-semibold); }
+em, i      { font-style: italic; }
+
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+.text-left   { text-align: left; }
+
+.truncate {
+  overflow:      hidden;
+  text-overflow: ellipsis;
+  white-space:   nowrap;
+}
+
+
+/* ----------------------------------------------------------
+   Links
+---------------------------------------------------------- */
+
+a {
+  color:           var(--color-secondary-dark);
+  text-decoration: none;
+  transition:      color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-secondary);
+}
+
+a:focus-visible {
+  outline:        2px solid var(--color-secondary);
+  outline-offset: 3px;
+  border-radius:  var(--radius-sm);
+}
+
+
+/* ----------------------------------------------------------
+   Lists
+---------------------------------------------------------- */
+
+ul, ol {
+  padding-left:  var(--space-6);
+  margin-top:    0;
+  margin-bottom: var(--space-4);
+}
+
+li {
+  font-family: var(--font-body);
+  font-size:   var(--text-base);
+  line-height: var(--leading-normal);
+  color:       var(--color-text);
+}
+
+.list-none {
+  list-style: none;
+  padding:    0;
+  margin:     0;
+}
+
+
+/* ----------------------------------------------------------
+   Dividers (matches the sage/rose lines in brand guide)
+---------------------------------------------------------- */
+
+hr {
+  border:     none;
+  border-top: var(--border-width-thick) solid var(--color-secondary-dark);
+  margin:     var(--space-6) 0;
+}
+
+hr.divider-warm {
+  border-color: var(--color-tertiary-dark);
+}
+
+hr.divider-subtle {
+  border-width: var(--border-width);
+  border-color: var(--color-border);
+}
+
+
+/* ----------------------------------------------------------
+   Reduced motion
+---------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration:  0.01ms !important;
+  }
+}
+
+
+@media (max-width: 580px){
+  h4, .heading-4 { font-size: var(--text-lg); }
+  h5, .heading-5 { font-size: var(--text-md); }
+  h6, .heading-6 { font-size: var(--text-sm); }
+}

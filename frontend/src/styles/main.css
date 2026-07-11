@@ -1,0 +1,46 @@
+/* Base */
+@import url('./base/variables.css');
+@import url('./base/typography.css');
+@import url('./base/base.css');
+
+/* Components */
+@import url('./components/button.css');
+@import url('./components/form-input.css');
+@import url('./components/search-bar.css');
+@import url('./components/navbar.css');
+@import url('./components/nav-sidebar.css');
+@import url('./components/search-overlay.css');
+
+@import url('./components/shop-sidebar.css');
+@import url('./components/product-grid.css');
+@import url('./components/product-card.css');
+@import url('./components/cart-sidebar.css');
+@import url('./components/transaction-modal.css');
+
+/* Layout */
+@import url('./layout/header.css');
+@import url('./layout/footer.css');
+
+/* Page */
+@import url('./pages/shop.css');
+@import url('./pages/cart.css');
+@import url('./pages/product-detail.css');
+@import url('./pages/checkout.css');
+@import url('./pages/auth.css');
+
+html, body, #root {
+  min-height: 100vh;
+}
+
+body, #root {
+  display:        flex;
+  flex-direction: column;
+}
+
+body {
+  background-color: var(--color-primary-light);
+}
+
+main {
+  flex: 1; 
+}

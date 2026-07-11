@@ -1,0 +1,198 @@
+/* ============================================================
+   header.css  →  src/styles/layout/header.css
+   Depends on: base/variables.css, base/typography.css
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Shell — sticky, frosted glass exactly like the source
+---------------------------------------------------------- */
+
+.header {
+  width:            100%;
+  position:         sticky;
+  top:              0;
+  z-index:          50;
+  background-color: var(--color-primary-light); /* --color-bg at 90% */
+  backdrop-filter:  blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:       box-shadow var(--transition-base);
+}
+
+/* JS can add .header--scrolled for the shadow */
+.header--scrolled {
+  box-shadow: var(--shadow-sm);
+}
+
+.header__inner {
+  display:         flex;
+  align-items:     center;
+  max-width:       var(--container-xl);
+  margin-inline:   auto;
+  padding-inline:  var(--space-16);   /* 64px — matches margin-desktop */
+  padding-block:   var(--space-8);    /* 32px — matches py-stack-md */
+
+}
+
+/* All three sections equal width */
+.about__us-wrap,
+.header__icon-menu,
+.header__actions {
+  flex: 1;
+}
+
+/* ----------------------------------------------------------
+   About
+---------------------------------------------------------- */
+
+.about__us-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* ----------------------------------------------------------
+   Logo
+---------------------------------------------------------- */
+
+.header__logo-wrap {
+  display:     flex;
+  align-items: center;
+  justify-content: center;
+  flex:            0 0 auto;
+}
+
+.header__logo {
+  font-family:     var(--font-display);
+  font-size:       1.7rem;               /* source: text-[28px] */
+  font-weight:     var(--weight-bold);
+  letter-spacing:  var(--tracking-tight);
+  color:           var(--color-neutral);
+  text-decoration: none;
+  line-height:     1;
+  text-transform:  uppercase;
+  transition:      opacity var(--transition-base);
+}
+
+.header__logo:hover {
+  opacity: 0.75;
+}
+
+
+.btn-about-us {
+  font-family:     var(--font-label);
+  font-size:       var(--text-sm);    /* label-caps = 12px */
+  font-weight:     var(--weight-semibold);
+  letter-spacing:  var(--tracking-wider);  /* 0.1em */
+  text-transform:  uppercase;
+  color:           var(--color-text-muted);
+  text-decoration: none;
+
+  transition:      color         var(--transition-base);
+  white-space:     nowrap;
+  line-height:     1;
+}
+
+.btn-about-us:hover {
+  color: var(--color-neutral);
+}
+
+
+/* ----------------------------------------------------------
+   Icon actions
+---------------------------------------------------------- */
+
+.header__actions {
+  display:     flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap:         var(--space-4);        /* gap-stack-sm = 16px */
+}
+
+.header__icon-btn {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding-inline:         var(--space-1);
+  padding-block: var(--space-2);
+  background:      transparent;
+  border:          none;
+  cursor:          pointer;
+  color:           var(--color-neutral);
+  border-radius:   var(--radius-sm);
+  transition:      color            var(--transition-base),
+                   transform        var(--duration-fast) var(--easing-default);
+  transform:       scale(0.95);
+}
+
+.header__icon-menu {
+  display:         none;
+  justify-content: flex-start;
+}
+
+.header__icon-btn:hover {
+  color:     var(--color-secondary);
+  transform: scale(1);
+}
+
+.header__icon-btn:active {
+  transform: scale(1);
+}
+
+.header__icon-btn:focus-visible {
+  outline:        2px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+/* Cart dot */
+.header__cart-btn {
+  position: relative;
+}
+
+.header__cart-dot {
+  position:         absolute;
+  top:              4px;
+  right:            4px;
+  width:            8px;
+  height:           8px;
+  border-radius:    var(--radius-full);
+  background-color: var(--color-secondary);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .header__inner{
+    padding-inline: var(--space-6);
+  }
+
+  .header__logo{
+    font-size: 1.5rem;
+  }
+
+  .about__us-wrap,
+  .header__icon-account, 
+  .header__icon-search{
+    display: none;
+  }
+
+  .header__icon-menu {
+    display:         flex;
+  }
+
+  .header__icon-menu,
+  .header__icon-cart {
+    padding-inline: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px){
+  .header__logo{
+    font-size: 1.2rem;
+  }
+
+  .header__actions{
+    gap: var(--space-1)
+  }
+}
+

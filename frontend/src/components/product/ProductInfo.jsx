@@ -1,6 +1,7 @@
 import { Star, StarHalf, Truck, Leaf } from "lucide-react";
 
 import useCartStore from "../../store/cart";
+import toast from "react-hot-toast";
 
 export default function ProductInfo( { product }) {
 
@@ -55,7 +56,10 @@ export default function ProductInfo( { product }) {
         <button 
           className="product-info__add-btn"
           data-id = {_id}
-          onClick={() => addToCart(product)}
+          onClick={() => {
+            addToCart(product);
+            toast.success("Product added to cart succesfully!")
+          }}
         >
           Add to Cart
         </button>

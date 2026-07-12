@@ -24,6 +24,11 @@
 /* ----------------------------------------------------------
    Image area
 ---------------------------------------------------------- */
+.product-card__image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
 .product-card__image-wrap {
   position:      relative;

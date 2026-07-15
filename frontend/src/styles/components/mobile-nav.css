@@ -1,0 +1,104 @@
+/* ============================================================
+   mobile-nav.css  →  src/styles/components/mobile-nav.css
+   Floating pill nav — mobile only
+   Depends on: base/variables.css, base/typography.css
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Hidden on desktop
+---------------------------------------------------------- */
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display:          flex;
+    position:         fixed;
+    bottom:           calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+    left:             50%;
+    transform:        translateX(-50%);
+    z-index:          100;
+
+    /* Floating pill shape */
+    background-color: rgba(252, 249, 248, 0.82);
+    backdrop-filter:  blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius:    var(--radius-full);
+    border:           1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:       0 8px 32px rgba(45, 45, 45, 0.12),
+                      0 2px 8px  rgba(45, 45, 45, 0.08),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    /* Sizing */
+    padding:          var(--space-2) var(--space-3);
+    gap:              var(--space-1);
+    width:            auto;
+    min-width:        320px;
+    max-width:        calc(100vw - var(--space-8));
+  }
+}
+
+
+/* ----------------------------------------------------------
+   Individual item
+---------------------------------------------------------- */
+
+.mobile-nav__item {
+  flex:             1;
+  display:          flex;
+  flex-direction:   column;
+  align-items:      center;
+  justify-content:  center;
+  gap:              3px;
+  padding:          var(--space-2) var(--space-3);
+  border-radius:    var(--radius-lg);
+  background:       transparent;
+  border:           none;
+  cursor:           pointer;
+  color:            var(--color-neutral-light);
+  text-decoration:  none;
+  transition:       color            200ms ease,
+                    background-color 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+  white-space:      nowrap;
+}
+
+.mobile-nav__item:hover {
+  color:            var(--color-neutral);
+}
+
+/* Active state */
+.mobile-nav__item--active {
+  color: var(--color-neutral);
+}
+
+.mobile-nav__item--active .mobile-nav__label {
+  font-weight: var(--weight-bold);
+}
+
+
+/* ----------------------------------------------------------
+   Label
+---------------------------------------------------------- */
+
+.mobile-nav__label {
+  font-family:  var(--font-label);
+  font-size:    10px;
+  font-weight:  var(--weight-semibold);
+  line-height:  1;
+  letter-spacing: 0.02em;
+  transition:   font-weight 200ms ease;
+}
+
+
+/* ----------------------------------------------------------
+   Push page content up so nothing hides behind the bar
+---------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  }
+}

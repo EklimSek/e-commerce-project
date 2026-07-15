@@ -9,6 +9,7 @@ import NavBar from './layout/NavBar.jsx';
 import CartSidebar from './components/cart/CartSidebar.jsx'
 import NavSidebar from './components/NavSidebar.jsx';
 import SearchOverlay from "./components/SearchOverlay.jsx";
+import MobileNav from "./components/MobileNav.jsx";
 
 import useModalStore from './store/modal.js';
 import useAuthStore from "./store/auth.js";
@@ -88,6 +89,9 @@ function App() {
       <CartSidebar/>
 
       <NavSidebar/>
+
+      <MobileNav/>
+      
     </>
   );
 }

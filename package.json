@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch backend backend/server.js"
+    "dev": "nodemon --watch backend backend/server.js",
+    "start": "node backend/server.js",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
@@ -22,8 +24,7 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.6.2",
     "node-cron": "^4.6.0",
-    "rate-limit-redis": "^5.0.0",
-    "react-lazy-load-image-component": "^1.6.3"
+    "rate-limit-redis": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"

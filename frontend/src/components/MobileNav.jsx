@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { label: "Search",     to: null,       icon: Search,     modal: "search" },
   { label: "Shop", to: "/shop",    icon: LayoutGrid },
   { label: "Saved",      to: "/saved",   icon: Bookmark },
-  { label: "Account",    to: "/account", icon: User },
+  { label: "Account",    to: "/login", icon: User },
 ];
 
 export default function MobileNav() {

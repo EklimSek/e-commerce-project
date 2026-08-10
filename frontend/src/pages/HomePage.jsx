@@ -4,7 +4,7 @@ import HeroSection from '../components/home/HeroSection'
 import Categories from "../components/home/Categories";
 import NewArrivals from "../components/home/NewArrivals";
 import OurStory from "../components/home/OurStory";
-import Newsletter from "../components/home/Newsletter";
+import NewsLetter from "../components/home/Newsletter";
 
 
 export default function HomePage() {

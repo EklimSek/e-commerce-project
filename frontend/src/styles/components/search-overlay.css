@@ -47,7 +47,7 @@
 
 @media (max-width: 768px) {
   .search-overlay__inner {
-    padding-inline: var(--space-5);
+    padding-inline: var(--space-3);
   }
 }
 

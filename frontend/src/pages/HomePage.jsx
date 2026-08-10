@@ -51,7 +51,7 @@ export default function HomePage() {
         <Categories />
         <NewArrivals products={newArrivals} isLoading={isLoading}/>
         <OurStory />
-        <Newsletter />
+        <NewsLetter />
       </main>
     </div>
   );

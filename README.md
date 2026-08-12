@@ -7,8 +7,7 @@ A full-stack e-commerce web app for a skincare brand, built from scratch with a 
 
 ## Live Demo
 
-- Frontend: _add your deployed link here (e.g. Vercel/Netlify)_
-- Backend API: _add your deployed link here (e.g. Render/Railway)_
+**Live Site**: https://e-commerce-project-979i.onrender.com/
 
 ## Table of Contents
 

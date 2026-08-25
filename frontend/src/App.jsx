@@ -57,6 +57,7 @@ function App() {
   // Checking if the user is still valid for every request
   useEffect(() => {
     const handleAuthExpired = () => {
+        if (!useAuthStore.getState().isLoggedIn) return; // guest — nothing actually expired
         useAuthStore.getState().clearUser();
         useCartStore.getState().clearCart();
         navigate("/login");
